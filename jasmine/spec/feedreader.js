@@ -71,7 +71,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
 
-    describe('menu-hidden', function() {
+    describe('The Menu', function() {
         it('body has menu-hidden class', function() {
             expect($('body')).toHaveClass('menu-hidden');
         });
@@ -92,10 +92,39 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
 
+    describe('Initial Entries', function() {
+        beforeEach(function(done) {
+                loadfeed(0); //Load the first feed we've defined (index of 0). See app.js.
+                done(); //The done() function is always passed to the beforeEach(), afterEach(), and it() test methods as an argument, whether you need it or not. To use it, include the done argument to the method and the call it after all of the processing is complete.
+            it('Single .entry exists in .feed container', function() {
+                expect($('.entry')).not.toBe(null);
+            });           
+        });
+    });
+
     /* TODO: Write a new test suite named "New Feed Selection"
 
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+
+    describe('New Feed Selection', function() {
+        beforeEach(function(done) {
+               // var a = loadfeed(0); 
+               // var b = loadfeed(1);
+               loadfeed(0);
+               loadfeed(1);
+                done(); //The done() function is always passed to the beforeEach(), afterEach(), and it() test methods as an argument, whether you need it or not. To use it, include the done argument to the method and the call it after all of the processing is complete.
+            it('Content in loadfeed actually changed', function() {
+                expect(loadfeed(0)).not.toEqual(loadfeed(1));
+            });           
+        });
+    });
+
+    /*
+    Other tests.
+    */
+
+
 }());
