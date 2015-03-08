@@ -83,6 +83,23 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
 
+
+    describe('Menu Click Test', function() {
+        beforeEach(function(done) {
+                $('.menu-icon-link').trigger('click');
+                done(); //The done() function is always passed to the beforeEach(), afterEach(), and it() test methods as an argument, whether you need it or not. To use it, include the done argument to the method and the call it after all of the processing is complete.
+            });
+
+            it('menu becomes visible when clicked', function() {
+                expect($('body')).not.toHaveClass('menu-hidden');
+            });   
+
+            it('menu hides when clicked again', function() {
+                expect($('body')).toHaveClass('menu-hidden');
+            });         
+        
+    });
+
     /* TODO: Write a new test suite named "Initial Entries" */
 
         /* TODO: Write a test that ensures when the loadFeed
@@ -94,12 +111,14 @@ $(function() {
 
     describe('Initial Entries', function() {
         beforeEach(function(done) {
-                loadfeed(0); //Load the first feed we've defined (index of 0). See app.js.
+                loadFeed(0); //Load the first feed we've defined (index of 0). See app.js.
                 done(); //The done() function is always passed to the beforeEach(), afterEach(), and it() test methods as an argument, whether you need it or not. To use it, include the done argument to the method and the call it after all of the processing is complete.
+            });
+
             it('Single .entry exists in .feed container', function() {
                 expect($('.entry')).not.toBe(null);
             });           
-        });
+        
     });
 
     /* TODO: Write a new test suite named "New Feed Selection"
@@ -111,15 +130,14 @@ $(function() {
 
     describe('New Feed Selection', function() {
         beforeEach(function(done) {
-               // var a = loadfeed(0); 
-               // var b = loadfeed(1);
-               loadfeed(0);
-               loadfeed(1);
+                this.a = loadFeed(0);
+                this.b = loadFeed(1);
                 done(); //The done() function is always passed to the beforeEach(), afterEach(), and it() test methods as an argument, whether you need it or not. To use it, include the done argument to the method and the call it after all of the processing is complete.
+          }); 
+
             it('Content in loadfeed actually changed', function() {
-                expect(loadfeed(0)).not.toEqual(loadfeed(1));
+                expect('this.a').not.toEqual('this.b');
             });           
-        });
     });
 
     /*
