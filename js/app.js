@@ -27,10 +27,10 @@ var allFeeds = [
 ];
 
 
-// var allFeeds = []; to run the first test per instructions, to see what Jasmine says.
+// var allFeeds = []; to run the first test per instructions, to see what Jasmine says. Result: test failed.
 
 /* This function starts up our application. The Google Feed
- * Reader API is loaded asynchonously and will then call this
+ * Reader API is loaded asynchonously and will then call  
  * function when the API is loaded.
  */
 function init() {
