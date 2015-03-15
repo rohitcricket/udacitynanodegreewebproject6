@@ -11,7 +11,9 @@
 var allFeeds = [
     {
         name: 'Udacity Blog',
-        url: 'http://blog.udacity.com/feeds/posts/default?alt=rss'
+       // name: '', // testing for empty string. the test failed, which means the test suite is correct.
+       url: 'http://blog.udacity.com/feeds/posts/default?alt=rss'
+       // url: '' // testing for empty string. the test failed, which means the test suite is correct.
     }, {
         name: 'CSS Tricks',
         url: 'http://css-tricks.com/feed'

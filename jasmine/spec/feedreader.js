@@ -40,6 +40,7 @@ $(function() {
         it('URL is not empty', function() {
           allFeeds.forEach(function(feed) {
              expect(feed.url).not.toBe(null);
+             expect(feed.url).not.toBe(""); //this eliminates the possibility of an empty string.
           });
         });
 
@@ -49,14 +50,15 @@ $(function() {
          */
 
         it('name is defined', function() {
-          allFeeds.forEach(function(name) {
-             expect(name).toBeDefined();
+          allFeeds.forEach(function(feed) {
+             expect(feed.name).toBeDefined();
           });
         });
 
         it('name is not empty', function() {
-          allFeeds.forEach(function(name) {
-             expect(name).not.toBe(null);
+          allFeeds.forEach(function(feed) {
+             expect(feed.name).not.toBe(""); //this eliminates the possibility of an empty string.
+             expect(feed.name).not.toBe(null);
           });
         });
 
@@ -116,10 +118,28 @@ $(function() {
             });
 
             it('Single .entry exists in .feed container', function() {
-                expect($('.entry')).not.toBe(null);
-            });           
-        
+                expect($('.entry').length).not.toBe(null);
+                expect($('.feed')).toExist(); //toExist() is a matcher from jasmine-jquery library
+            });          
+
     });
+
+
+    describe("Initial Entries 2nd test", function() { 
+        beforeEach(function(done) {
+            spyOn(window, 'loadFeed').and.callThrough();
+            loadFeed(0, done); 
+        });
+
+        it('Singe .entry exists in .feed container', function() {
+            expect($('.entry').length === 0).not.toBe(true); // Tried to put this function in the previous describe method, but it failed. So I tried using spy function, and it worked.
+        });
+
+    });
+
+
+
+
 
     /* TODO: Write a new test suite named "New Feed Selection"
 
@@ -140,9 +160,17 @@ $(function() {
             });           
     });
 
-    /*
-    Other tests.
-    */
+    // Other Tests
+
+    // Check if CSS menu-hidden property
+
+		    /*
+		.menu-hidden .menu {
+		    transform: translate3d(-12em, 0, 0);
+		    transition: transform 0.2s;
+		}
+		*/
+	// Result is that the menu does not hide anymore. 
 
 
 }());
