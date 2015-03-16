@@ -160,7 +160,7 @@ $(function() {
 
     // Other Tests
 
-    // Check if CSS menu-hidden property
+    // Check if CSS menu-hidden property works if CSS is removed.
 
 		    /*
 		.menu-hidden .menu {
@@ -169,6 +169,21 @@ $(function() {
 		}
 		*/
 	// Result is that the menu does not hide anymore. 
+
+	// Test for 'feed-list' class.
+    describe('Feed-list', function() {
+        it('ul has feed-list class', function() {
+            expect($('ul')).toHaveClass('feed-list');
+        });
+    });
+
+
+    // Test for 'entry-link' class.
+    describe('Entry-link', function() {
+        it('a tag has feed-list class', function() {
+            expect($('a')).toHaveClass('entry-link');
+        });
+    });
 
 
 }());
