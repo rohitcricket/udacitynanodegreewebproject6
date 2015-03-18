@@ -125,7 +125,7 @@ $(function() {
     });
 
 
-    describe("Initial Entries 2nd test", function() { 
+    describe("Initial Entries 2nd test", function() { //another way of doing the test.
         beforeEach(function(done) {
             spyOn(window, 'loadFeed').and.callThrough();
             loadFeed(0, done); 
