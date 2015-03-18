@@ -39,3 +39,11 @@ by the loadFeed function that the content actually changes.
 10. Test for 'feed-list' class.
 
 11. Test for 'entry-link' class.
+
+# Resources
+
+The best resources for Jasmine I found are:
+1. The Official Documentation. http://jasmine.github.io/
+2. How do I Jasmine: a tutorial? http://evanhahn.com/how-do-i-jasmine/
+3. Testing JavaScript Using the Jasmine Framework. http://www.htmlgoodies.com/beyond/javascript/testing-javascript-using-the-jasmine-framework.html
+4. Udacity Jasmine Course.

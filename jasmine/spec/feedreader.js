@@ -146,17 +146,21 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
 
-    describe('New Feed Selection', function() {
-        beforeEach(function(done) {
-                this.a = loadFeed(0);
-                this.b = loadFeed(1);
-                done(); //The done() function is always passed to the beforeEach(), afterEach(), and it() test methods as an argument, whether you need it or not. To use it, include the done argument to the method and the call it after all of the processing is complete.
-          }); 
 
-            it('Content in loadfeed actually changed', function() {
-                expect('this.a').not.toEqual('this.b');
-            });           
-    });
+      describe('New Feed Selection', function(done) {
+        var feed;
+
+        beforeEach(function(done) {
+            loadFeed(1, done);
+            feed = $('.feed').html();    
+           // console.log(feed);
+        });
+        it('has changed', function(done) {
+            expect($('.feed').html()).not.toEqual(feed); 
+            loadFeed(0, done);                                                  
+        });
+      });
+
 
     // Other Tests
 

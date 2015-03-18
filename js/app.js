@@ -8,6 +8,7 @@
 
 // The names and URLs to all of the feeds we'd like available.
 
+
 var allFeeds = [
     {
         name: 'Udacity Blog',
@@ -28,6 +29,29 @@ var allFeeds = [
 
 
 // var allFeeds = []; to run the first test per instructions, to see what Jasmine says. Result: test failed.
+
+/* make allFeeds[0] equal to allFeeds[1]. This test should fail and it does.
+
+var allFeeds = [ 
+    {
+        name: 'Udacity Blog',
+        url: 'http://blog.udacity.com/feeds/posts/default?alt=rss'
+    }, {
+        name: 'Udacity Blog',
+        url: 'http://blog.udacity.com/feeds/posts/default?alt=rss'
+    }, {
+        name: 'CSS Tricks',
+        url: 'http://css-tricks.com/feed'
+    }, {
+        name: 'HTML5 Rocks',
+        url: 'http://feeds.feedburner.com/html5rocks'
+    }, {
+        name: 'Linear Digressions',
+        url: 'http://feeds.feedburner.com/udacity-linear-digressions'
+    }
+];
+
+*/
 
 /* This function starts up our application. The Google Feed
  * Reader API is loaded asynchonously and will then call  
